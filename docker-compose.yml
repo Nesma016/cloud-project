@@ -13,5 +13,13 @@ services:
       - webapp
 
   webapp:
-    image: nginxdemos/hello:plain
+    image: node:18-alpine
     restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: ["sh", "-c", "npm install && npm start"]
+
+volumes:
+  caddy_data:
+  caddy_config:
