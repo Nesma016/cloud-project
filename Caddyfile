@@ -1,0 +1,3 @@
+nesmadomain.duckdns.org { 
+reverse_proxy webapp:3000
+}
