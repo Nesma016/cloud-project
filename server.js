@@ -1,11 +1,10 @@
-const express = require('express');
+const express = require("express");
+const path = require("path");
+
 const app = express();
-const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('<h1>Dit is mijn eigen Server-Side Rendered applicatie!</h1><p>Gedeployed via GitHub Actions en beveiligd met Caddy HTTPS.</p>');
-});
+app.use(express.static(path.join(__dirname, "public")));
 
-app.listen(port, () => {
-  console.log(`App running on port ${port}`);
+app.listen(3000, () => {
+  console.log("Server draait op poort 3000");
 });
